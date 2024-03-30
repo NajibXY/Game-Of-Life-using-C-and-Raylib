@@ -30,6 +30,8 @@ int main()
         // Event Handling   
 
         // State update
+    
+        simulation.Update();
 
         // Object drawing
         BeginDrawing();

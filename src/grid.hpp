@@ -19,4 +19,6 @@ class Grid {
         bool IsInBounds(int x, int y);
         void SetCell(int x, int y, int value);
         int GetCell(int x, int y);
+
+        void Randomize();
 };

@@ -27,3 +27,12 @@ int Grid::GetCell(int x, int y) {
     }
     return cells[x][y]; 
 }
+
+void Grid::Randomize() {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            int random = GetRandomValue(0, 5);
+            cells[i][j] = (random == 1) ? 1 : 0;
+        }
+    }
+}

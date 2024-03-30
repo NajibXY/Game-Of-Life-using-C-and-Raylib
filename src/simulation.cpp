@@ -36,3 +36,38 @@ int Simulation::CountLiveNeighbours(int x, int y) {
     // Return the number of live neighbours
     return liveNeighbours;
 }
+
+void Simulation::Update() {
+    // Create a new grid to store the updated values
+    Grid newGrid = grid;
+
+    // Loop through the cells in the grid
+    for (int i = 0; i < grid.getRows(); i++) {
+        for (int j = 0; j < grid.getColumns(); j++) {
+            // Get the number of live neighbours for the cell
+            int liveNeighbours = CountLiveNeighbours(i, j);
+
+            // Update the cell value based on the rules of the Game of Life
+            if (grid.GetCell(i, j) == 0) {
+                if (liveNeighbours == 3) {
+                    // Reproduction
+                    newGrid.SetCell(i, j, 1);
+                } else {
+                    // No change
+                    newGrid.SetCell(i, j, 0);
+                }
+            } else {
+                if (liveNeighbours + grid.GetCell(i, j) < 3 || liveNeighbours + grid.GetCell(i, j)  > 4) {
+                    // Underpopulation and Overpopulation
+                    newGrid.SetCell(i, j, 0);
+                } else {
+                    // Survival
+                    newGrid.SetCell(i, j, grid.GetCell(i, j));
+                }
+            }
+        }
+    }
+
+    // Update the grid with the new values
+    grid = newGrid;
+}
