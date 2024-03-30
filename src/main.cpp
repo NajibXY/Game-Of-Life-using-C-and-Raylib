@@ -1,27 +1,31 @@
 #include <raylib.h>
-#include "ball.h"
 
 int main()
 {
-    Color darkGreen = Color{20, 160, 133, 255};
+    // Simulations consts
+    const int WIDTH_W = 500;
+    const int HEIGHT_W = 500;
+    const int INITIAL_FPS = 10;
+    Color FULL_BLACK = {0 ,0 ,0 ,255 };
 
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    // Initialisation of window
+    InitWindow(WIDTH_W, HEIGHT_W, "Game of Life Basic Simulation");
 
-    Ball ball = Ball();
+    SetTargetFPS(INITIAL_FPS);
 
-    InitWindow(screenWidth, screenHeight, "My first RAYLIB program!");
-    SetTargetFPS(60);
-
-    while (!WindowShouldClose())
+    /* ------------ Simulation loop ------------*/
+    while (WindowShouldClose() == false)
     {
+        // Event Handling   
+
+        // State update
+
+        // Object drawing
         BeginDrawing();
-        ClearBackground(darkGreen);
-        ball.Update();
-        ball.Draw();
+        ClearBackground(FULL_BLACK);
         EndDrawing();
     }
 
+    // Closing window
     CloseWindow();
-    return 0;
 }
