@@ -1,10 +1,12 @@
 #include <raylib.h>
+#include "grid.hpp"
 
 int main()
 {
     // Simulations consts
     const int WIDTH_W = 500;
     const int HEIGHT_W = 500;
+    const int CELL_DIM = 25;
     const int INITIAL_FPS = 10;
     Color FULL_BLACK = {0 ,0 ,0 ,255 };
 
@@ -12,6 +14,8 @@ int main()
     InitWindow(WIDTH_W, HEIGHT_W, "Game of Life Basic Simulation");
 
     SetTargetFPS(INITIAL_FPS);
+
+    Grid grid(WIDTH_W, HEIGHT_W, CELL_DIM);
 
     /* ------------ Simulation loop ------------*/
     while (WindowShouldClose() == false)
@@ -23,6 +27,7 @@ int main()
         // Object drawing
         BeginDrawing();
         ClearBackground(FULL_BLACK);
+        grid.DrawGrid();
         EndDrawing();
     }
 
