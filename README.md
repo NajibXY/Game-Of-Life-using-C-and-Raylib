@@ -1,1 +1,1 @@
-# game_of_life
+# Game Of Life using C++ and Raylib
