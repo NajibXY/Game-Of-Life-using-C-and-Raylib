@@ -12,6 +12,11 @@ class Grid {
             rows(height/cellDim), columns(width/cellDim), cellDim(cellDim), 
             cells(rows, std::vector<int>(columns, 0)) {};
         void DrawGrid();
+        
+        int getRows() { return rows; }
+        int getColumns() { return columns; }
 
+        bool IsInBounds(int x, int y);
         void SetCell(int x, int y, int value);
+        int GetCell(int x, int y);
 };

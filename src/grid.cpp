@@ -11,8 +11,19 @@ void Grid::DrawGrid() {
     }
 }
 
+bool Grid::IsInBounds(int x, int y) {
+    return x >= 0 && x < rows && y >= 0 && y < columns;
+}
+
 void Grid::SetCell(int x, int y, int value) {
-    if(x >= 0 && x < rows && y >= 0 && y < columns) {
+    if(IsInBounds(x, y)) {
         cells[x][y] = value;
     }
+}
+
+int Grid::GetCell(int x, int y) {
+    if(!IsInBounds(x, y)) {
+        return 0;
+    }
+    return cells[x][y]; 
 }
