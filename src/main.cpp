@@ -5,9 +5,9 @@
 int main()
 {
     // Simulations consts
-    const int WIDTH_W = 500;
-    const int HEIGHT_W = 500;
-    const int CELL_DIM = 25;
+    const int WIDTH_W = 1300;
+    const int HEIGHT_W = 900;
+    const int CELL_DIM = 5;
     const int INITIAL_FPS = 10;
     Color GREY = {29,29,29,255};
 
