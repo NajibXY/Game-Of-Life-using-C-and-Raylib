@@ -8,6 +8,7 @@ int main()
     const int WIDTH_W = 1300;
     const int HEIGHT_W = 900;
     const int CELL_DIM = 5;
+    const int RANDOM_RATE = 2; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, will be no activated cell
     const int INITIAL_FPS = 10;
     Color GREY = {29,29,29,255};
 
@@ -15,7 +16,8 @@ int main()
     InitWindow(WIDTH_W, HEIGHT_W, "Game of Life Basic Simulation");
     SetTargetFPS(INITIAL_FPS);
 
-    Simulation simulation(WIDTH_W, HEIGHT_W, CELL_DIM);
+    //todo implement type of simulation (random, seeded, etc.)
+    Simulation simulation(WIDTH_W, HEIGHT_W, CELL_DIM, RANDOM_RATE);
     // simulation.SetCell(10,0,1);
     // simulation.SetCell(9,0,1);
     // simulation.SetCell(11,1,1);

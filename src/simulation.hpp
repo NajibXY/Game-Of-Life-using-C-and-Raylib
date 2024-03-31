@@ -6,7 +6,7 @@ class Simulation {
         Grid grid;
         
     public :
-        Simulation(int width, int height, int cellDim): grid(width, height, cellDim) {grid.Randomize();};
+        Simulation(int width, int height, int cellDim, int randomRate): grid(width, height, cellDim, randomRate) {grid.Randomize();};
         void DrawGrid();
         void SetCell(int x, int y, int value);
         int CountLiveNeighbours(int x, int y);
