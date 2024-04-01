@@ -8,22 +8,32 @@ const int HEIGHT_W = 900; // LAX 1080
 const int CELL_DIM = 10;
 const int RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
 const int INITIAL_FRAMERATE = 10;
+int FRAMERATE = INITIAL_FRAMERATE;
 
 void DrawControlText() {
-    DrawText("Controls:", WIDTH_W+10, 10, 20, WHITE);
-    DrawText("Space: Start/Stop simulation", WIDTH_W+10, 30, 20, WHITE);
-    DrawText("R: Randomize grid", WIDTH_W+10, 50, 20, WHITE);
-    DrawText("D: Accelerate simulation", WIDTH_W+10, 70, 20, WHITE);
-    DrawText("S: Slow down simulation", WIDTH_W+10, 90, 20, WHITE);
-    DrawText("F: Reset speed", WIDTH_W+10, 110, 20, WHITE);
-    DrawText("E: Clear grid", WIDTH_W+10, 130, 20, WHITE);
-    DrawText("Left click: Draw cell", WIDTH_W+10, 150, 20, WHITE);
-    DrawText("Right click: Erase cell", WIDTH_W+10, 170, 20, WHITE);
+    DrawText("  Controls", WIDTH_W+60, 30, 40, WHITE);
+    DrawText("  ---------", WIDTH_W+60, 60, 40, WHITE);
+    DrawText("Space : Start/Stop simulation", WIDTH_W+30, 100, 20, BLUE);
+    DrawText("D : Accelerate simulation", WIDTH_W+30, 130, 20, BLUE);
+    DrawText("S : Slow down simulation", WIDTH_W+30, 160, 20, BLUE);
+    DrawText("F : Reset speed", WIDTH_W+30, 190, 20, BLUE);
+    
+    DrawText("R : Randomize grid", WIDTH_W+30, 300, 20, YELLOW);
+    DrawText("E : Clear grid", WIDTH_W+30, 330, 20, YELLOW);
+    
+    //todo implement O&P
+    DrawText("O & P to navigate shapes)", WIDTH_W+30, 400, 20, WHITE);
+    DrawText("         < DOT >         ", WIDTH_W+30, 430, 20, RED);
+    DrawText("Left click : Draw shape", WIDTH_W+30, 460, 20, GREEN);
+    DrawText("Right click : Erase shape", WIDTH_W+30, 490, 20, GREEN);
+    //todo implement grid size change (must be empty)
+
+    // Draw simulation info
+    DrawText(("Current refresh rate: " + std::to_string(FRAMERATE)).c_str(), WIDTH_W + 30, HEIGHT_W - 50, 20, GRAY);
 }
 
 int main()
 {
-    int FRAMERATE = INITIAL_FRAMERATE;
     Color GREY = {29,29,29,255};
 
     // Initialisation of window
@@ -55,10 +65,7 @@ int main()
         }
         else if (IsKeyPressed(KEY_D)) {
             int newFramerate = round(FRAMERATE*2);
-            if (newFramerate == 4) {
-                newFramerate = 5;
-            }
-            if (newFramerate > 0) {
+            if (newFramerate > 4) {
                 FRAMERATE = newFramerate;
                 SetTargetFPS(FRAMERATE);
             }
