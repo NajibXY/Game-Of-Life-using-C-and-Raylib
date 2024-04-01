@@ -2,21 +2,33 @@
 #include "simulation.hpp"
 #include <iostream>
 #include <cmath>
+// Simulations consts
+const int WIDTH_W = 1300; // MAX 1920 - 420 = 1500
+const int HEIGHT_W = 900; // LAX 1080
+const int CELL_DIM = 10;
+const int RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
+const int INITIAL_FRAMERATE = 10;
+
+void DrawControlText() {
+    DrawText("Controls:", WIDTH_W+10, 10, 20, WHITE);
+    DrawText("Space: Start/Stop simulation", WIDTH_W+10, 30, 20, WHITE);
+    DrawText("R: Randomize grid", WIDTH_W+10, 50, 20, WHITE);
+    DrawText("D: Accelerate simulation", WIDTH_W+10, 70, 20, WHITE);
+    DrawText("S: Slow down simulation", WIDTH_W+10, 90, 20, WHITE);
+    DrawText("F: Reset speed", WIDTH_W+10, 110, 20, WHITE);
+    DrawText("E: Clear grid", WIDTH_W+10, 130, 20, WHITE);
+    DrawText("Left click: Draw cell", WIDTH_W+10, 150, 20, WHITE);
+    DrawText("Right click: Erase cell", WIDTH_W+10, 170, 20, WHITE);
+}
 
 int main()
 {
-    // Simulations consts
-    const int WIDTH_W = 1300;
-    const int HEIGHT_W = 900;
-    const int CELL_DIM = 20;
-    const int RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
-    const int INITIAL_FRAMERATE = 10;
     int FRAMERATE = INITIAL_FRAMERATE;
     Color GREY = {29,29,29,255};
 
     // Initialisation of window
     //todo create string for settings and add it constantly to the window title or check for a panel to display settings & inputs
-    InitWindow(WIDTH_W, HEIGHT_W, "Game of Life Basic Simulation - Press space to start/stop simulation / R to Randomize / D to Accelerate / S to Slow down / F to Reset speed / E to Clear grid");
+    InitWindow(WIDTH_W+420, HEIGHT_W, "Game of Life Basic Simulation - Press space to start/stop simulation / R to Randomize / D to Accelerate / S to Slow down / F to Reset speed / E to Clear grid");
     SetTargetFPS(INITIAL_FRAMERATE);
 
     //todo implement type of simulation (random, seeded, etc.)
@@ -83,6 +95,7 @@ int main()
 
         // Object drawing
         BeginDrawing();
+        DrawControlText();
         ClearBackground(GREY);
         simulation.DrawGrid();
         EndDrawing();
@@ -91,3 +104,4 @@ int main()
     // Closing window
     CloseWindow();
 }
+
