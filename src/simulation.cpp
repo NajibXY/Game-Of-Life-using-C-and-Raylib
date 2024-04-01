@@ -76,3 +76,8 @@ void::Simulation::SetRunning(bool value) {
     // Set the running state of the simulation
     running = value;
 }
+
+void::Simulation::Randomize() {
+    // Randomize the grid
+    grid.Randomize();
+}

@@ -19,4 +19,6 @@ class Simulation {
         void DrawGrid();
         int CountLiveNeighbours(int x, int y);
         void Update();
+
+        void Randomize();
 };
