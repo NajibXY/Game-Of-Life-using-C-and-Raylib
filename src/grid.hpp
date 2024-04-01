@@ -24,4 +24,5 @@ class Grid {
         int GetCell(int x, int y);
 
         void Randomize();
+        void Clear();
 };

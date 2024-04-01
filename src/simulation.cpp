@@ -17,14 +17,14 @@ int Simulation::CountLiveNeighbours(int x, int y) {
 
     // Define the coordinates of the neighbours in a TOROIDAL grid
     int neighbourCoordinates[8][2] = {
-        {(x-1 + grid.GetColumns()) % grid.GetColumns(), (y-1 + grid.GetRows()) % grid.GetRows()},
-        {x, (y-1 + grid.GetRows()) % grid.GetRows()},
-        {(x+1) % grid.GetColumns(), (y-1 + grid.GetRows()) % grid.GetRows()},
-        {(x-1 + grid.GetColumns()) % grid.GetColumns(), y},
-        {(x+1) % grid.GetColumns(), y},
-        {(x-1 + grid.GetColumns()) % grid.GetColumns(), (y+1) % grid.GetRows()},
-        {x, (y+1) % grid.GetRows()},
-        {(x+1) % grid.GetColumns(), (y+1) % grid.GetRows()}
+        {(x-1 + grid.GetRows()) % grid.GetRows(), (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {x, (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {(x+1) % grid.GetRows(), (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {(x-1 + grid.GetRows()) % grid.GetRows(), y},
+        {(x+1) % grid.GetRows(), y},
+        {(x-1 + grid.GetRows()) % grid.GetRows(), (y+1) % grid.GetColumns()},
+        {x, (y+1) % grid.GetColumns()},
+        {(x+1) % grid.GetRows(), (y+1) % grid.GetColumns()}
     };
 
     // Loop through the neighbours
@@ -80,4 +80,9 @@ void::Simulation::SetRunning(bool value) {
 void::Simulation::Randomize() {
     // Randomize the grid
     grid.Randomize();
+}
+
+void::Simulation::Clear() {
+    // Clear the grid
+    grid.Clear();
 }

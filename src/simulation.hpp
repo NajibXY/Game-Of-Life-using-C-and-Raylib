@@ -9,7 +9,7 @@ class Simulation {
     public :
         Simulation(int width, int height, int cellDim, int randomRate): 
             grid(width, height, cellDim, randomRate), running(false)
-            {grid.Randomize();};
+            {};
 
         bool IsRunning() { return running; }
         void SetRunning(bool value);
@@ -21,4 +21,5 @@ class Simulation {
         void Update();
 
         void Randomize();
+        void Clear();
 };
