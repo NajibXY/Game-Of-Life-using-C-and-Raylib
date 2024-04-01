@@ -130,7 +130,28 @@ int main()
             RANDOM_RATE = INITIAL_RANDOM_RATE;
             simulation.SetRandomRate(RANDOM_RATE);
         }
-        // TODO implement bigger size of grid and lower
+        else if (IsKeyPressed(KEY_O)) {
+            if (CURRENT_SHAPE == GLIDER_NAME) {
+                CURRENT_SHAPE = DOT_NAME;
+            } else if (CURRENT_SHAPE == BLINKER_NAME) {
+                CURRENT_SHAPE = GLIDER_NAME;
+            } else if (CURRENT_SHAPE == GLIDER_GUN) {
+                CURRENT_SHAPE = BLINKER_NAME;
+            } else {
+                CURRENT_SHAPE = GLIDER_GUN;
+            }
+        }
+        else if (IsKeyPressed(KEY_P)) {
+            if (CURRENT_SHAPE == GLIDER_NAME) {
+                CURRENT_SHAPE = BLINKER_NAME;
+            } else if (CURRENT_SHAPE == BLINKER_NAME) {
+                CURRENT_SHAPE = GLIDER_GUN;
+            } else if (CURRENT_SHAPE == GLIDER_GUN) {
+                CURRENT_SHAPE = DOT_NAME;
+            } else {
+                CURRENT_SHAPE = GLIDER_NAME;
+            }
+        }
 
         // State update
         if (simulation.IsRunning()) {
