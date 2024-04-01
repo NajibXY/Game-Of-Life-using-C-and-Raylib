@@ -8,13 +8,14 @@ int main()
     // Simulations consts
     const int WIDTH_W = 1300;
     const int HEIGHT_W = 900;
-    const int CELL_DIM = 100;
+    const int CELL_DIM = 20;
     const int RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
     const int INITIAL_FRAMERATE = 10;
     int FRAMERATE = INITIAL_FRAMERATE;
     Color GREY = {29,29,29,255};
 
     // Initialisation of window
+    //todo create string for settings and add it constantly to the window title or check for a panel to display settings & inputs
     InitWindow(WIDTH_W, HEIGHT_W, "Game of Life Basic Simulation - Press space to start/stop simulation / R to Randomize / D to Accelerate / S to Slow down / F to Reset speed / E to Clear grid");
     SetTargetFPS(INITIAL_FRAMERATE);
 
