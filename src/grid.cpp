@@ -43,3 +43,7 @@ void Grid::Clear() {
         }
     }
 }
+
+void Grid::SetRandomRate(int value) {
+    randomRate = value;
+}

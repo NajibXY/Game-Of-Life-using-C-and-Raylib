@@ -20,6 +20,7 @@ class Grid {
         int GetRandomeRate() { return randomRate; }
 
         bool IsInBounds(int x, int y);
+        void SetRandomRate(int value);
         void SetCell(int x, int y, int value);
         int GetCell(int x, int y);
 

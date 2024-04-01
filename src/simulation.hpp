@@ -15,6 +15,7 @@ class Simulation {
         void SetRunning(bool value);
 
         void SetCell(int x, int y, int value);
+        void SetRandomRate(int value);
 
         void DrawGrid();
         int CountLiveNeighbours(int x, int y);

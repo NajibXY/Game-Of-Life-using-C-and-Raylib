@@ -86,3 +86,8 @@ void::Simulation::Clear() {
     // Clear the grid
     grid.Clear();
 }
+
+void::Simulation::SetRandomRate(int value) {
+    // Set the random rate of the grid
+    grid.SetRandomRate(value);
+}
