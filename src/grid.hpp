@@ -11,12 +11,13 @@ class Grid {
     public :
         Grid(int width, int height, int cellDim, int randomRate):   
             rows(height/cellDim), columns(width/cellDim), cellDim(cellDim), randomRate(randomRate),
-            cells(rows, std::vector<int>(columns, 0)) {};
+            cells(rows, std::vector<int>(columns, 0)) 
+            {};
         void DrawGrid();
         
-        int getRows() { return rows; }
-        int getColumns() { return columns; }
-        int getRandomeRate() { return randomRate; }
+        int GetRows() { return rows; }
+        int GetColumns() { return columns; }
+        int GetRandomeRate() { return randomRate; }
 
         bool IsInBounds(int x, int y);
         void SetCell(int x, int y, int value);

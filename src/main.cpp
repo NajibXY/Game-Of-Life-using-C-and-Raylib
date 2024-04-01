@@ -8,7 +8,7 @@ int main()
     const int WIDTH_W = 1300;
     const int HEIGHT_W = 900;
     const int CELL_DIM = 5;
-    const int RANDOM_RATE = 2; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, will be no activated cell
+    const int RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
     const int INITIAL_FPS = 10;
     Color GREY = {29,29,29,255};
 
@@ -30,10 +30,12 @@ int main()
     while (WindowShouldClose() == false)
     {
         // Event Handling   
+        if (IsKeyPressed(KEY_SPACE)) simulation.SetRunning(!simulation.IsRunning());
 
         // State update
-    
-        simulation.Update();
+        if (simulation.IsRunning()) {
+            simulation.Update();
+        }
 
         // Object drawing
         BeginDrawing();
