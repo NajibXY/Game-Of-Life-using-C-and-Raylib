@@ -4,9 +4,8 @@
 void Grid::DrawGrid() {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            Color color = cells[i][j] == 1 ? GREEN : BLACK;
+            Color color = cells[i][j] == 1 ? RED : BLACK;
             DrawRectangle(j*cellDim, i*cellDim, cellDim-1, cellDim-1, color);
-
         }
     }
 }
@@ -31,8 +30,16 @@ int Grid::GetCell(int x, int y) {
 void Grid::Randomize() {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            int random = GetRandomValue(0, 5);
-            cells[i][j] = (random == 1) ? 1 : 0;
+            int random = randomRate > 0 ? GetRandomValue(0, randomRate - 1) : 1;
+            cells[i][j] = (random == 0) ? 1 : 0;
+        }
+    }
+}
+
+void Grid::Clear() {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            cells[i][j] = 0;
         }
     }
 }

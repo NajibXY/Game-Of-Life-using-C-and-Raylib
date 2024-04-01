@@ -17,14 +17,14 @@ int Simulation::CountLiveNeighbours(int x, int y) {
 
     // Define the coordinates of the neighbours in a TOROIDAL grid
     int neighbourCoordinates[8][2] = {
-        {(x-1 + grid.getColumns()) % grid.getColumns(), (y-1 + grid.getRows()) % grid.getRows()},
-        {x, (y-1 + grid.getRows()) % grid.getRows()},
-        {(x+1) % grid.getColumns(), (y-1 + grid.getRows()) % grid.getRows()},
-        {(x-1 + grid.getColumns()) % grid.getColumns(), y},
-        {(x+1) % grid.getColumns(), y},
-        {(x-1 + grid.getColumns()) % grid.getColumns(), (y+1) % grid.getRows()},
-        {x, (y+1) % grid.getRows()},
-        {(x+1) % grid.getColumns(), (y+1) % grid.getRows()}
+        {(x-1 + grid.GetRows()) % grid.GetRows(), (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {x, (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {(x+1) % grid.GetRows(), (y-1 + grid.GetColumns()) % grid.GetColumns()},
+        {(x-1 + grid.GetRows()) % grid.GetRows(), y},
+        {(x+1) % grid.GetRows(), y},
+        {(x-1 + grid.GetRows()) % grid.GetRows(), (y+1) % grid.GetColumns()},
+        {x, (y+1) % grid.GetColumns()},
+        {(x+1) % grid.GetRows(), (y+1) % grid.GetColumns()}
     };
 
     // Loop through the neighbours
@@ -42,8 +42,8 @@ void Simulation::Update() {
     Grid newGrid = grid;
 
     // Loop through the cells in the grid
-    for (int i = 0; i < grid.getRows(); i++) {
-        for (int j = 0; j < grid.getColumns(); j++) {
+    for (int i = 0; i < grid.GetRows(); i++) {
+        for (int j = 0; j < grid.GetColumns(); j++) {
             // Get the number of live neighbours for the cell
             int liveNeighbours = CountLiveNeighbours(i, j);
 
@@ -70,4 +70,19 @@ void Simulation::Update() {
 
     // Update the grid with the new values
     grid = newGrid;
+}
+
+void::Simulation::SetRunning(bool value) {
+    // Set the running state of the simulation
+    running = value;
+}
+
+void::Simulation::Randomize() {
+    // Randomize the grid
+    grid.Randomize();
+}
+
+void::Simulation::Clear() {
+    // Clear the grid
+    grid.Clear();
 }

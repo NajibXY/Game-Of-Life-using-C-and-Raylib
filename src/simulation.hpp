@@ -4,11 +4,22 @@
 class Simulation {
     private :
         Grid grid;
+        bool running;
         
     public :
-        Simulation(int width, int height, int cellDim): grid(width, height, cellDim) {grid.Randomize();};
-        void DrawGrid();
+        Simulation(int width, int height, int cellDim, int randomRate): 
+            grid(width, height, cellDim, randomRate), running(false)
+            {};
+
+        bool IsRunning() { return running; }
+        void SetRunning(bool value);
+
         void SetCell(int x, int y, int value);
+
+        void DrawGrid();
         int CountLiveNeighbours(int x, int y);
         void Update();
+
+        void Randomize();
+        void Clear();
 };
