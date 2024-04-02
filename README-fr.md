@@ -67,13 +67,15 @@ Il me tenait donc à coeur de commencer ma série de projets d'Avril 2024 par ce
 ## 6. Exécuter le projet
 
 - Si vous souhaitez vous amusez avec la simulation, vous pouvez télécharger le .exe présent dans le dépôt principal : [game_of_life.exe](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/game_of_life.exe)
-  
+
+## Compilation, duplication, amélioration du projet
+
 ### Pré-requis 
 
 - Installation de C++ (14 de préférence)
 - Installation de Raylib pour C++ : https://www.raylib.com/
 
-## Compilation, duplication, amélioration du projet
+### Etapes
 
 - Télécharger ou Forker le projet
 - Ouvrir le projet dans VS Code via le fichier main.code-workspace
