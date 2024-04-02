@@ -109,7 +109,7 @@ int main()
             // Clear the grid
             simulation.Clear();
         }
-        else if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+        else if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             // Draw selected shape
             Vector2 mousePos = GetMousePosition();
             simulation.DrawShape(mousePos.y/CELL_DIM, mousePos.x/CELL_DIM);
