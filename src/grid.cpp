@@ -71,14 +71,35 @@ void Grid::DrawShape(int x, int y) {
             SetCell((x + 2) % rows, (y + 1) % columns, 1);
             SetCell((x + 1) % rows, (y + 2) % columns, 1);
         } else if (shapeIndex == 2) { // Blinker
-            if (GetRandomValue(0, 1) == 0) { // Randomly choose orientation
+            int random = GetRandomValue(0, 3); // Randomly choose orientation between vertical blinker, horizontal blinker, angel blinker and another type of blinkers
+            if (random == 0) { // 
                 SetCell(x, y, 1);
                 SetCell(x, (y + 1) % columns, 1);
                 SetCell(x, (y + 2) % columns, 1);
-            } else {
+            } else if (random == 1) {
                 SetCell(x, y, 1);
                 SetCell((x + 1) % rows, y, 1);
                 SetCell((x + 2) % rows, y, 1);
+            } else if (random == 2) {
+                SetCell((x + rows) % rows, (y) % columns, 1);
+                SetCell((x + rows) % rows, (y + 1) % columns, 1);
+                SetCell((x + 1) % rows, (y + 1) % columns, 1);
+                SetCell((x + 2) % rows, (y + 2) % columns, 1);
+                SetCell((x - 1 + rows) % rows, (y + 2) % columns, 1);
+                SetCell((x + rows) % rows, (y + 3) % columns, 1);
+                SetCell((x + rows) % rows, (y + 4) % columns, 1);
+                SetCell((x + 1) % rows, (y + 3) % columns, 1);
+            } else  {
+                SetCell(x, y, 1);
+                SetCell(x, (y + 1) % columns, 1);
+                SetCell(x, (y + 2) % columns, 1);
+                SetCell(x, (y + 3) % columns, 1);
+                SetCell(x, (y + 4) % columns, 1);
+                SetCell((x + 1) % rows, y, 1);
+                SetCell((x + 1) % rows, (y + 4) % columns, 1);
+                SetCell((x + 2) % rows, (y + 1) % columns, 1);
+                SetCell((x + 2) % rows, (y + 2) % columns, 1);
+                SetCell((x + 2) % rows, (y + 3) % columns, 1);
             }
         } else if (shapeIndex == 4) { // Glider Gun
             SetCell(x, y, 1);
@@ -120,7 +141,7 @@ void Grid::DrawShape(int x, int y) {
             SetCell((x - 2 + rows) % rows, (y + 34) % columns, 1);
             SetCell((x - 3 + rows) % rows, (y + 35) % columns, 1);
             SetCell((x - 2 + rows) % rows, (y + 35) % columns, 1);
-        } else if (shapeIndex == 5) {
+        } else if (shapeIndex == 5) { // Pulsar
             SetCell((x + rows) % rows, y, 1);
             SetCell((x - 1 + rows) % rows, y, 1);
             SetCell((x - 2 + rows) % rows, y, 1);
