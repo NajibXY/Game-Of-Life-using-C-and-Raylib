@@ -61,63 +61,117 @@ void Grid::SetShapeIndex(int value) {
 }
 
 void Grid::DrawShape(int x, int y) {
-    if (shapeIndex == 3) {
-        SetCell(x, y, 1);
-    } else if (shapeIndex == 1) { // Glider
-        SetCell(x, y, 1);
-        SetCell((x + 1) % rows, y, 1);
-        SetCell((x + 2) % rows, y, 1);
-        SetCell((x + 2) % rows, (y + 1) % columns, 1);
-        SetCell((x + 1) % rows, (y + 2) % columns, 1);
-    } else if (shapeIndex == 2) { // Blinker
-        if (GetRandomValue(0, 1) == 0) { // Randomly choose orientation
+    if (IsInBounds(x, y)) {
+        if (shapeIndex == 3) {
             SetCell(x, y, 1);
-            SetCell(x, (y + 1) % columns, 1);
-            SetCell(x, (y + 2) % columns, 1);
-        } else {
+        } else if (shapeIndex == 1) { // Glider
             SetCell(x, y, 1);
             SetCell((x + 1) % rows, y, 1);
             SetCell((x + 2) % rows, y, 1);
+            SetCell((x + 2) % rows, (y + 1) % columns, 1);
+            SetCell((x + 1) % rows, (y + 2) % columns, 1);
+        } else if (shapeIndex == 2) { // Blinker
+            if (GetRandomValue(0, 1) == 0) { // Randomly choose orientation
+                SetCell(x, y, 1);
+                SetCell(x, (y + 1) % columns, 1);
+                SetCell(x, (y + 2) % columns, 1);
+            } else {
+                SetCell(x, y, 1);
+                SetCell((x + 1) % rows, y, 1);
+                SetCell((x + 2) % rows, y, 1);
+            }
+        } else if (shapeIndex == 4) { // Glider Gun
+            SetCell(x, y, 1);
+            SetCell(x, (y + 1) % columns, 1);
+            SetCell((x - 1 + rows) % rows, y, 1);
+            SetCell((x - 1 + rows) % rows, (y + 1) % columns, 1);
+
+            SetCell(x, (y + 10) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 10) % columns, 1);
+            SetCell((x + 1) % rows, (y + 10) % columns, 1);
+            SetCell((x + 2) % rows, (y + 11) % columns, 1);
+            SetCell((x + 3) % rows, (y + 12) % columns, 1);
+            SetCell((x + 3) % rows, (y + 13) % columns, 1);
+            SetCell((x + 2) % rows, (y + 15) % columns, 1);
+            SetCell((x + 1) % rows, (y + 16) % columns, 1);
+            SetCell(x, (y + 16) % columns, 1);
+            SetCell(x, (y + 17) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 16) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 15) % columns, 1);
+            SetCell(x, (y + 14) % columns, 1);
+            SetCell((x - 3 + rows) % rows, (y + 13) % columns, 1);
+            SetCell((x - 3 + rows) % rows, (y + 12) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 11) % columns, 1);
+
+            SetCell((x - 1 + rows) % rows, (y + 20) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 20) % columns, 1);
+            SetCell((x - 3 + rows) % rows, (y + 20) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 21) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 21) % columns, 1);
+            SetCell((x - 3 + rows) % rows, (y + 21) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 22) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 24) % columns, 1);
+            SetCell((x - 5 + rows) % rows, (y + 24) % columns, 1);
+            SetCell(x, (y + 22) % columns, 1);
+            SetCell(x, (y + 24) % columns, 1);
+            SetCell((x + 1) % rows, (y + 24) % columns, 1);
+
+            SetCell((x - 3 + rows) % rows, (y + 34) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 34) % columns, 1);
+            SetCell((x - 3 + rows) % rows, (y + 35) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 35) % columns, 1);
+        } else if (shapeIndex == 5) {
+            SetCell((x + rows) % rows, y, 1);
+            SetCell((x - 1 + rows) % rows, y, 1);
+            SetCell((x - 2 + rows) % rows, y, 1);
+            SetCell((x - 4 + rows) % rows, (y + 2) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 3) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 4) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 8) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 9) % columns, 1);
+            SetCell((x - 4 + rows) % rows, (y + 10) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 12) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 12) % columns, 1);
+            SetCell((x + rows) % rows, (y + 12) % columns, 1);
+            SetCell((x + 4) % rows, (y + 12) % columns, 1);
+            SetCell((x + 5) % rows, (y + 12) % columns, 1);
+            SetCell((x + 6) % rows, (y + 12) % columns, 1);
+            SetCell((x + 8) % rows, (y + 10) % columns, 1);
+            SetCell((x + 8) % rows, (y + 9) % columns, 1);
+            SetCell((x + 8) % rows, (y + 8) % columns, 1);
+            SetCell((x + 8) % rows, (y + 4) % columns, 1);
+            SetCell((x + 8) % rows, (y + 3) % columns, 1);
+            SetCell((x + 8) % rows, (y + 2) % columns, 1);
+            SetCell((x + 6) % rows, y, 1);
+            SetCell((x + 5) % rows, y, 1);
+            SetCell((x + 4) % rows, y, 1);
+
+            SetCell((x + 1) % rows, (y + 2) % columns, 1);
+            SetCell((x + 1) % rows, (y + 3) % columns, 1);
+            SetCell((x + 1) % rows, (y + 4) % columns, 1);
+            SetCell((x + 3) % rows, (y + 2) % columns, 1);
+            SetCell((x + 3) % rows, (y + 3) % columns, 1);
+            SetCell((x + 3) % rows, (y + 4) % columns, 1);
+            SetCell((x + 1) % rows, (y + 8) % columns, 1);
+            SetCell((x + 1) % rows, (y + 9) % columns, 1);
+            SetCell((x + 1) % rows, (y + 10) % columns, 1);
+            SetCell((x + 3) % rows, (y + 8) % columns, 1);
+            SetCell((x + 3) % rows, (y + 9) % columns, 1);
+            SetCell((x + 3) % rows, (y + 10) % columns, 1);
+
+            SetCell(x, (y + 5) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 5) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 5) % columns, 1);
+            SetCell(x, (y + 7) % columns, 1);
+            SetCell((x - 1 + rows) % rows, (y + 7) % columns, 1);
+            SetCell((x - 2 + rows) % rows, (y + 7) % columns, 1);
+
+            SetCell((x + 4) % rows, (y + 5) % columns, 1);
+            SetCell((x + 5) % rows, (y + 5) % columns, 1);
+            SetCell((x + 6) % rows, (y + 5) % columns, 1);
+            SetCell((x + 4) % rows, (y + 7) % columns, 1);
+            SetCell((x + 5) % rows, (y + 7) % columns, 1);
+            SetCell((x + 6) % rows, (y + 7) % columns, 1);
         }
-    } else if (shapeIndex == 4) { // Glider Gun
-        SetCell(x, y, 1);
-        SetCell(x, (y + 1) % columns, 1);
-        SetCell((x - 1 + rows) % rows, y, 1);
-        SetCell((x - 1 + rows) % rows, (y + 1) % columns, 1);
-
-        SetCell(x, (y + 10) % columns, 1); //X Y+10
-        SetCell((x - 1 + rows) % rows, (y + 10) % columns, 1); //X-1 Y+10
-        SetCell((x + 1) % rows, (y + 10) % columns, 1); //X+1 Y+10
-        SetCell((x + 2) % rows, (y + 11) % columns, 1); //X+2 Y+11
-        SetCell((x + 3) % rows, (y + 12) % columns, 1); //X+3 Y+12
-        SetCell((x + 3) % rows, (y + 13) % columns, 1); //X+3 Y+13
-        SetCell((x + 2) % rows, (y + 15) % columns, 1); //X+2 Y+15
-        SetCell((x + 1) % rows, (y + 16) % columns, 1); //X+1 Y+16
-        SetCell(x, (y + 16) % columns, 1); //X Y+16
-        SetCell(x, (y + 17) % columns, 1); //X Y+17
-        SetCell((x - 1 + rows) % rows, (y + 16) % columns, 1); //X-1 Y+16
-        SetCell((x - 2 + rows) % rows, (y + 15) % columns, 1); //X-2 Y+15
-        SetCell(x, (y + 14) % columns, 1); //X Y+14
-        SetCell((x - 3 + rows) % rows, (y + 13) % columns, 1); //X-3 Y+13
-        SetCell((x - 3 + rows) % rows, (y + 12) % columns, 1); //X-3 Y+12
-        SetCell((x - 2 + rows) % rows, (y + 11) % columns, 1); //X-2 Y+11
-        
-        SetCell((x - 1 + rows) % rows, (y + 20) % columns, 1); // X-1 Y+20
-        SetCell((x - 2 + rows) % rows, (y + 20) % columns, 1); // X-2 Y+20
-        SetCell((x - 3 + rows) % rows, (y + 20) % columns, 1); // X-3 Y+20
-        SetCell((x - 1 + rows) % rows, (y + 21) % columns, 1); // X-1 Y+21
-        SetCell((x - 2 + rows) % rows, (y + 21) % columns, 1); // X-2 Y+21
-        SetCell((x - 3 + rows) % rows, (y + 21) % columns, 1); // X-3 Y+21
-        SetCell((x - 4 + rows) % rows, (y + 22) % columns, 1);  // X-4 Y+22 
-        SetCell((x - 4 + rows) % rows, (y + 24) % columns, 1); // X-4 Y+24
-        SetCell((x - 5 + rows) % rows, (y + 24) % columns, 1); // X-5 Y+24
-        SetCell(x, (y + 22) % columns, 1); // X Y+22
-        SetCell(x, (y + 24) % columns, 1); // X Y+24
-        SetCell((x + 1) % rows, (y + 24) % columns, 1); // X+1 Y+24
-
-        SetCell((x - 3 + rows) % rows, (y + 34) % columns, 1);
-        SetCell((x - 2 + rows) % rows, (y + 34) % columns, 1);
-        SetCell((x - 3 + rows) % rows, (y + 35) % columns, 1);
-        SetCell((x - 2 + rows) % rows, (y + 35) % columns, 1);
     }
 }

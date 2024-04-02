@@ -17,6 +17,7 @@ const std::string GLIDER_NAME = "GLIDER";
 const std::string BLINKER_NAME = "BLINKER";
 const std::string DOT_NAME = "DOT";
 const std::string GLIDER_GUN = "GLIDER GUN";
+const std::string PULSAR_NAME = "PULSAR";
 
 // Simulation variables
 int FRAMERATE = INITIAL_FRAMERATE;
@@ -131,9 +132,12 @@ int main()
             } else if (CURRENT_SHAPE == GLIDER_GUN) {
                 CURRENT_SHAPE = BLINKER_NAME;
                 simulation.SetShapeIndex(2);
-            } else {
+            } else if (CURRENT_SHAPE == PULSAR_NAME) {
                 CURRENT_SHAPE = GLIDER_GUN;
                 simulation.SetShapeIndex(4);
+            } else {
+                CURRENT_SHAPE = PULSAR_NAME;
+                simulation.SetShapeIndex(5);
             }
         }
         else if (IsKeyPressed(KEY_P)) {
@@ -144,6 +148,9 @@ int main()
                 CURRENT_SHAPE = GLIDER_GUN;
                 simulation.SetShapeIndex(4);
             } else if (CURRENT_SHAPE == GLIDER_GUN) {
+                CURRENT_SHAPE = PULSAR_NAME;
+                simulation.SetShapeIndex(5);
+            } else if (CURRENT_SHAPE == PULSAR_NAME) {
                 CURRENT_SHAPE = DOT_NAME;
                 simulation.SetShapeIndex(3);
             } else {
