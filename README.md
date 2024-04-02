@@ -1,6 +1,7 @@
 # C++ Game of Life Simulation with Raylib Library
 
 ## Author: [Najib El khadir](https://github.com/NajibXY)
+## French Version [README-fr](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/README-fr.md)
 
 ## 1. Motivations
 
