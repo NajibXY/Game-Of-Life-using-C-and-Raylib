@@ -4,11 +4,11 @@
 #include <cmath>
 #include <string>
 
-// Simulations consts
+// Simulation consts
 const int WIDTH_W = 1300; // MAX 1920 - 420 = 1500
-const int HEIGHT_W = 900; // LAX 1080
+const int HEIGHT_W = 900; // MAX 1080
 const int CELL_DIM = 10;
-const int INITIAL_RANDOM_RATE = 5; // Calculation of random rate = 1/RANDOM_RATE, if negative or 0, no cell will be activated
+const int INITIAL_RANDOM_RATE = 5;
 const int INITIAL_FRAMERATE = 10;
 const int MAX_FRAMERATE = 1000;
 const int SUBMAX_FRAMERATE = 640;
@@ -18,6 +18,7 @@ const std::string BLINKER_NAME = "BLINKER";
 const std::string DOT_NAME = "DOT";
 const std::string GLIDER_GUN = "GLIDER GUN";
 
+// Simulation variables
 int FRAMERATE = INITIAL_FRAMERATE;
 int RANDOM_RATE = INITIAL_RANDOM_RATE;
 std::string CURRENT_SHAPE = DOT_NAME;
@@ -25,7 +26,6 @@ std::string SIMULATION_STATUS = "Initialised";
 
 void DrawControlText() {
     int i=1;
-    //todo Funtionalities and increment placement
     DrawText("  Controls", WIDTH_W+60, 30*i, 40, WHITE);
     i++;
     DrawText("  ---------", WIDTH_W+60, 30*i, 40, WHITE);
@@ -51,14 +51,13 @@ void DrawControlText() {
     DrawText("E : Clear grid", WIDTH_W+30, 30*i, 20, YELLOW);
     i+=2;
     
-    //todo implement O&P
     DrawText("O & P to navigate shapes", WIDTH_W+30, 30*i, 20, WHITE);
     i++;
     DrawText(("     < "+CURRENT_SHAPE+" >     ").c_str(), WIDTH_W+30, 30*i, 20, RED);
     i++;
     DrawText("Left click : Draw shape", WIDTH_W+30, 30*i, 20, GREEN);
     i++;
-    DrawText("Right click : Erase shape", WIDTH_W+30, 30*i, 20, GREEN);
+    DrawText("Right click : Erase dot", WIDTH_W+30, 30*i, 20, GREEN);
     i+=2;
 
     // Draw simulation info
@@ -72,19 +71,11 @@ int main()
     Color GREY = {29,29,29,255};
 
     // Initialisation of window
-    //todo create string for settings and add it constantly to the window title or check for a panel to display settings & inputs
     InitWindow(WIDTH_W+420, HEIGHT_W, "Game of Life Basic Simulation");
     SetTargetFPS(INITIAL_FRAMERATE);
 
     //todo implement type of simulation (random, seeded, etc.)
     Simulation simulation(WIDTH_W, HEIGHT_W, CELL_DIM, RANDOM_RATE);
-    // simulation.SetCell(10,0,1);
-    // simulation.SetCell(9,0,1);
-    // simulation.SetCell(11,1,1);
-    // simulation.SetCell(10,18,1);
-    // simulation.SetCell(9,19,1);
-
-    // std::cout   << simulation.CountLiveNeighbours(10,0) << std::endl;
 
     /* ------------ Simulation loop ------------*/
     while (WindowShouldClose() == false)
@@ -113,7 +104,7 @@ int main()
         }
         else if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
             Vector2 mousePos = GetMousePosition();
-            simulation.SetCell(mousePos.y/CELL_DIM, mousePos.x/CELL_DIM, 1);
+            simulation.DrawShape(mousePos.y/CELL_DIM, mousePos.x/CELL_DIM);
         }
         else if(IsMouseButtonDown(MOUSE_RIGHT_BUTTON)) {
             Vector2 mousePos = GetMousePosition();
@@ -133,23 +124,31 @@ int main()
         else if (IsKeyPressed(KEY_O)) {
             if (CURRENT_SHAPE == GLIDER_NAME) {
                 CURRENT_SHAPE = DOT_NAME;
+                simulation.SetShapeIndex(3);
             } else if (CURRENT_SHAPE == BLINKER_NAME) {
                 CURRENT_SHAPE = GLIDER_NAME;
+                simulation.SetShapeIndex(1);
             } else if (CURRENT_SHAPE == GLIDER_GUN) {
                 CURRENT_SHAPE = BLINKER_NAME;
+                simulation.SetShapeIndex(2);
             } else {
                 CURRENT_SHAPE = GLIDER_GUN;
+                simulation.SetShapeIndex(4);
             }
         }
         else if (IsKeyPressed(KEY_P)) {
             if (CURRENT_SHAPE == GLIDER_NAME) {
                 CURRENT_SHAPE = BLINKER_NAME;
+                simulation.SetShapeIndex(2);
             } else if (CURRENT_SHAPE == BLINKER_NAME) {
                 CURRENT_SHAPE = GLIDER_GUN;
+                simulation.SetShapeIndex(4);
             } else if (CURRENT_SHAPE == GLIDER_GUN) {
                 CURRENT_SHAPE = DOT_NAME;
+                simulation.SetShapeIndex(3);
             } else {
                 CURRENT_SHAPE = GLIDER_NAME;
+                simulation.SetShapeIndex(1);
             }
         }
 

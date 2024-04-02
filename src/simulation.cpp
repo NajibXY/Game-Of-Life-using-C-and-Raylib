@@ -91,3 +91,13 @@ void::Simulation::SetRandomRate(int value) {
     // Set the random rate of the grid
     grid.SetRandomRate(value);
 }
+
+void::Simulation::SetShapeIndex(int value) {
+    // Set the shape index of the grid
+    grid.SetShapeIndex(value);
+}
+
+void::Simulation::DrawShape(int x, int y) {
+    // Draw the shape at the specified coordinates
+    grid.DrawShape(x, y);
+}
