@@ -1,17 +1,18 @@
 #include <raylib.h>
 #include "grid.hpp"
 
-void Grid::DrawGrid() {
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
-            Color color = cells[i][j] == 1 ? RED : BLACK;
-            DrawRectangle(j*cellDim, i*cellDim, cellDim-1, cellDim-1, color);
-        }
-    }
-}
-
 bool Grid::IsInBounds(int x, int y) {
     return x >= 0 && x < rows && y >= 0 && y < columns;
+}
+
+int Grid::GetCell(int x, int y) {
+    if(!IsInBounds(x, y)) {
+        // Wrap around toroidal coordinates
+        int wrappedX = (x + rows) % rows;
+        int wrappedY = (y + columns) % columns;
+        return cells[wrappedX][wrappedY];
+    }
+    return cells[x][y]; 
 }
 
 void Grid::SetCell(int x, int y, int value) {
@@ -25,14 +26,13 @@ void Grid::SetCell(int x, int y, int value) {
     }
 }
 
-int Grid::GetCell(int x, int y) {
-    if(!IsInBounds(x, y)) {
-        // Wrap around toroidal coordinates
-        int wrappedX = (x + rows) % rows;
-        int wrappedY = (y + columns) % columns;
-        return cells[wrappedX][wrappedY];
+void Grid::DrawGrid() {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            Color color = cells[i][j] == 1 ? RED : BLACK;
+            DrawRectangle(j*cellDim, i*cellDim, cellDim-1, cellDim-1, color);
+        }
     }
-    return cells[x][y]; 
 }
 
 void Grid::Randomize() {
@@ -50,14 +50,6 @@ void Grid::Clear() {
             cells[i][j] = 0;
         }
     }
-}
-
-void Grid::SetRandomRate(int value) {
-    randomRate = value;
-}
-
-void Grid::SetShapeIndex(int value) {
-    shapeIndex = value;
 }
 
 void Grid::DrawShape(int x, int y) {

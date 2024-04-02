@@ -11,18 +11,20 @@ class Simulation {
             grid(width, height, cellDim, randomRate), running(false)
             {};
 
+        // Getters and setters
         bool IsRunning() { return running; }
-        void SetRunning(bool value);
+        void SetRunning(bool value) { running = value; }
         
-        void SetCell(int x, int y, int value);
+        // Operations on the Grid
+        void DrawGrid();
+        void Randomize();
+        void Clear();
         void SetRandomRate(int value);
         void SetShapeIndex(int value);
         void DrawShape(int x, int y);
-
-        void DrawGrid();
+        void SetCell(int x, int y, int value);
+        
+        // Simulation update logic
         int CountLiveNeighbours(int x, int y);
         void Update();
-
-        void Randomize();
-        void Clear();
 };

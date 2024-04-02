@@ -14,19 +14,26 @@ class Grid {
             rows(height/cellDim), columns(width/cellDim), cellDim(cellDim), randomRate(randomRate), shapeIndex(3),
             cells(rows, std::vector<int>(columns, 0))
             {};
-        void DrawGrid();
         
+        // Getters and setters
         int GetRows() { return rows; }
         int GetColumns() { return columns; }
         int GetRandomeRate() { return randomRate; }
-        int GetCell(int x, int y);
+        void SetRandomRate(int value) { randomRate = value; }
+        void SetShapeIndex(int value) { shapeIndex = value; }
 
+        // Operations on a cell
         bool IsInBounds(int x, int y);
-        void SetRandomRate(int value);
-        void SetShapeIndex(int value);
-        void DrawShape(int x, int y);
+        int GetCell(int x, int y);
         void SetCell(int x, int y, int value);
 
+        // Global Drawing operations
+        void DrawGrid();
         void Randomize();
         void Clear();
+
+        // Drawing shapes
+        void DrawShape(int x, int y);
+
+
 };
