@@ -40,6 +40,8 @@ void DrawControlText() {
     DrawText("D : Accelerate simulation", WIDTH_W+30, 30*i, 20, BLUE);
     i++;
     DrawText("F : Reset refresh rate", WIDTH_W+30, 30*i, 20, BLUE);
+    i++;
+    DrawText("G (when paused) : Play step", WIDTH_W+30, 30*i, 20, BLUE);
     i+=2;
     // Randomization controls
     DrawText("R : Randomize grid", WIDTH_W+30, 30*i, 20, YELLOW);
@@ -90,6 +92,10 @@ int main()
             // Start/Stop simulation
             simulation.SetRunning(!simulation.IsRunning());
             simulation.IsRunning() ? SIMULATION_STATUS = "Running" : SIMULATION_STATUS = "Paused";
+        }
+        else if(IsKeyPressed(KEY_G) && !simulation.IsRunning()) {
+            // Play step
+            simulation.Update();
         }
         else if (IsKeyPressed(KEY_D)) {
             // Accelerate simulation
