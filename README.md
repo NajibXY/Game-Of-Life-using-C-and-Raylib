@@ -11,6 +11,8 @@ The Game of Life stands as one of the most striking examples in developmental AI
 It remains a cornerstone for anything related to emergent behaviors and bio-inspired intelligent systems, as well as a fascinating visual introduction to AI currents that are slightly less fashionable these days. 
 Therefore, I was eager to start my series of projects for April 2024 with this classic.
 
+</br> </br>
+
 ## 2. Technologies Used
 
 - C++14
