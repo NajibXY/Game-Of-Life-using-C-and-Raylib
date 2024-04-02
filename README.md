@@ -66,13 +66,15 @@ Therefore, I was eager to start my series of projects for April 2024 with this c
 ## 6. Running the Project
 
 - If you simply want to play with the simulation, you can download the .exe from the main repository: [game_of_life.exe](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/game_of_life.exe)
+
+## Compilation, Duplication, and Improvement of the Project
   
 ### Prerequisites
 
-- C++ installation (preferably 14)
-- Raylib for C++ installation: https://www.raylib.com/
++ C++ installation (preferably 14)
++ Raylib for C++ installation: https://www.raylib.com/
 
-## Compilation, Duplication, and Improvement of the Project
+### Steps
 
 - Download or fork the project
 - Open the project in VS Code via the main.code-workspace file
