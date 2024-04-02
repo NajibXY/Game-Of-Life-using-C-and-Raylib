@@ -1,11 +1,34 @@
 #include "simulation.hpp"
 
-// Implement the DrawGrid method
 void Simulation::DrawGrid() {
     grid.DrawGrid();
 }
 
-// Implement the SetCell method
+void::Simulation::Randomize() {
+    // Randomize the grid
+    grid.Randomize();
+}
+
+void::Simulation::Clear() {
+    // Clear the grid
+    grid.Clear();
+}
+
+void::Simulation::SetRandomRate(int value) {
+    // Set the random rate of the grid
+    grid.SetRandomRate(value);
+}
+
+void::Simulation::SetShapeIndex(int value) {
+    // Set the shape index of the grid
+    grid.SetShapeIndex(value);
+}
+
+void::Simulation::DrawShape(int x, int y) {
+    // Draw the shape at the specified coordinates
+    grid.DrawShape(x, y);
+}
+
 void Simulation::SetCell(int x, int y, int value) {
     // Set the value of the cell at (x, y) in the grid
     grid.SetCell(x, y, value);
@@ -70,19 +93,4 @@ void Simulation::Update() {
 
     // Update the grid with the new values
     grid = newGrid;
-}
-
-void::Simulation::SetRunning(bool value) {
-    // Set the running state of the simulation
-    running = value;
-}
-
-void::Simulation::Randomize() {
-    // Randomize the grid
-    grid.Randomize();
-}
-
-void::Simulation::Clear() {
-    // Clear the grid
-    grid.Clear();
 }
