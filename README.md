@@ -1,6 +1,6 @@
 # Simulation du Jeu de la Vie en C++ avec la bibliothèque Raylib
 
-![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/main.gif)
+![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/main.gif)
 
 ## 1. Motivations
 
@@ -23,20 +23,40 @@ Il me tenait donc à coeur de commencer ma série de projets d'Avril 2024 par ce
 
 ## 4. Fonctionnalités implémentées
 
-### Randomisation de la grille
+- Randomisation de la grille (Touche R)
+- Nettoyage de la grille (Touche E)
+- Accélération et Ralentissement de la simulation (Touches S, D & F)
+- Mettre en pause / Reprendre la simulation (Touche Espace)
+- Jouer une étape (Touche G)
+- Modifier le taux de la randomisation (Touches K, L & J)
 
-- Dot (for custom shapes)
-- Glider https://conwaylife.com/wiki/Glider
-- Blinker (Randomly between vertical blinker, horizontal blinker, angel blinker and another type of blinkers) https://conwaylife.com/wiki/Blinker
-- Gosper glider gun https://conwaylife.com/wiki/Gosper_glider_gun
-- Basic Pulsar https://conwaylife.com/wiki/Pulsar
+![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/randomization.gif)
+
+### Patterns et oscillateurs implémentés
+
+- Il est également possible d'activer et de désactiver manuellement des cases avec les clics de la souris.
+  
+- Ont été également implémentés les patterns prédéfinis suivants (la navigation pour la sélection des formes à dessiner se fait avec les touche O & P) :
+  + Le Point (pour des formes customisés) :
+      ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/dot.gif)
+
+  + Le Glider : https://conwaylife.com/wiki/Glider
+      ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/glider.gif)
+
+  + Le Blinker : https://conwaylife.com/wiki/Blinker
+      ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/blinker.gif)
+
+  + Le Gosper Glider Gun : https://conwaylife.com/wiki/Gosper_glider_gun
+      ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/glider-gun.gif)
+    
+  + Le Pulsar : https://conwaylife.com/wiki/Pulsar
+      ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/pulsar.gif)
 
 ## 5. Améliorations possibles
 
-- Seed input
-- Grid size modification
-- Step backward
-- Memorize steps
-- Save run
-- Add more shapes
-- Add variations of Game of Life
+- Customization de la taille de la grille
+- Customization de la grille initiale avec un fichier de seed
+- Mémorisation des étapes et retour en arrière dans le déroulement étape par étape
+- Sauvegarde d'une run de l'initialisation à la stabilisation
+- Implémentation de plus d'oscillateurs et de formes
+- Implémentation de variations du jeu de la vie (règles différentes, dimensionnalité et propriétés différentes de l'espace) : https://conwaylife.com/wiki/Conway%27s_Game_of_Life#Variations_on_Life
