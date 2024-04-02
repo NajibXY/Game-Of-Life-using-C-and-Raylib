@@ -1,6 +1,6 @@
 # Simulation du Jeu de la Vie en C++ avec la bibliothèque Raylib
 
-![]([https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/main.gif))
+![](https://github.com/Your_Repository_Name/Your_GIF_Name.gif](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/main.gif)
 
 ## 1. Motivations
 
