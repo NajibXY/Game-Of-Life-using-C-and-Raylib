@@ -66,7 +66,7 @@ Il me tenait donc à coeur de commencer ma série de projets d'Avril 2024 par ce
 
 ## 6. Exécuter le projet
 
-- Si vous souhaitez vous amusez avec la simulation, vous pouvez télécharger le .exe présent dans le dépôt principal : [game_of_life.exe](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/game_of_life.exe)
+- Si vous souhaitez vous amuser avec la simulation, vous pouvez télécharger le .exe présent dans le dépôt principal : [game_of_life.exe](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/game_of_life.exe)
 
 ## Compilation, duplication, amélioration du projet
 
