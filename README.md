@@ -14,10 +14,10 @@ Therefore, I was eager to start my series of projects for April 2024 with this c
 </br> </br>
 
 ## 2. Technologies Used
-
-- C++14
+![](https://skillicons.dev/icons?i=cpp)
+- C++14 
 - Raylib Library for game development: I've been meaning to test this user-friendly library for a while, which offers very good tools for developing 2D games (and more generally interfaces).
-- The template used for the Raylib project configuration comes from this repository: https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2
+- The template used for the Raylib project configuration comes from this repository: https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2 ! Checkout his incredibly useful tutorials at https://www.youtube.com/@programmingwithnick
 
 ## 3. Simulation Rules
 
