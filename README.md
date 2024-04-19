@@ -17,7 +17,7 @@ Therefore, I was eager to start my series of projects for April 2024 with this c
 ![](https://skillicons.dev/icons?i=cpp)
 - C++14 
 - Raylib Library for game development: I've been meaning to test this user-friendly library for a while, which offers very good tools for developing 2D games (and more generally interfaces).
-- The template used for the Raylib project configuration comes from this repository: https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2 ! Checkout his incredibly useful tutorials at https://www.youtube.com/@programmingwithnick
+- The template used for the Raylib project configuration comes from this repository: https://github.com/educ8s/Raylib-CPP-Starter-Template-for-VSCODE-V2 ! This work was adapted from "Programming with Nick" tutorials. Check more of his incredibly useful videos at https://www.youtube.com/@programmingwithnick
 
 ## 3. Simulation Rules
 
@@ -28,17 +28,17 @@ Therefore, I was eager to start my series of projects for April 2024 with this c
 
 ## 4. Implemented Features
 
-- Grid randomization (Key R)
-- Grid clearing (Key E)
-- Acceleration and deceleration of simulation (Keys S, D & F)
-- Pause/Resume simulation (Space Key)
-- Play one step (Key G)
-- Modify randomization rate (Keys K, L & J)  
+- Grid randomization (Key `R`)
+- Grid clearing (Key `E`)
+- Acceleration and deceleration of simulation (Keys `S` `D` & `F`)
+- Pause/Resume simulation (`Space` Key)
+- Play one step (Key `G`)
+- Modify randomization rate (Keys `K` `L` & `J`)  
 ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/randomization.gif)
 
 ### Implemented Patterns and Oscillators
 
-- It is also possible to manually activate and deactivate cells with mouse clicks.
+- It is also possible to manually activate and deactivate cells with `mouse clicks`.
   
 - The following predefined patterns have been implemented (navigation for selecting shapes to draw is done with keys O & P):
   + The Dot (for customized shapes):  
