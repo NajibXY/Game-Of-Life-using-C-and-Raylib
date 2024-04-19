@@ -25,17 +25,17 @@ Il me tenait donc à coeur de commencer ma série de projets d'Avril 2024 par ce
 
 ## 4. Fonctionnalités implémentées
 
-- Randomisation de la grille (Touche R)
-- Nettoyage de la grille (Touche E)
-- Accélération et Ralentissement de la simulation (Touches S, D & F)
-- Mettre en pause / Reprendre la simulation (Touche Espace)
-- Jouer une étape (Touche G)
-- Modifier le taux de la randomisation (Touches K, L & J)  
+- Randomisation de la grille (Touche `R`)
+- Nettoyage de la grille (Touche `E`)
+- Accélération et Ralentissement de la simulation (Touches `S` `D` & `F`)
+- Mettre en pause / Reprendre la simulation (Touche `Espace`)
+- Jouer une étape (Touche `G`)
+- Modifier le taux de la randomisation (Touches `K` `L` & `J`)  
 ![](https://github.com/NajibXY/Game-Of-Life-using-CPP-and-Raylib/blob/master/gifs/randomization.gif)
 
 ### Patterns et oscillateurs implémentés
 
-- Il est également possible d'activer et de désactiver manuellement des cases avec les clics de la souris.
+- Il est également possible d'activer et de désactiver manuellement des cases avec les `clics de la souris`.
   
 - Ont été également implémentés les patterns prédéfinis suivants (la navigation pour la sélection des formes à dessiner se fait avec les touche O & P) :
   + Le Point (pour des formes customisés) :  
